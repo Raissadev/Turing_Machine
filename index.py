@@ -22,7 +22,7 @@ class Main:
 
         turing = TuringMachine(numbers, initial_state = "init", final_states = self.final_states, transaction = self.transaction)
 
-        print("Input on Tape:\n" + turing.getTape())
+        print(f"Input on Tape: {turing.getTape()}")
 
         while not turing.final():
             turing.step()
