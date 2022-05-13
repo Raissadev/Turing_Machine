@@ -15,11 +15,11 @@ class Tape(object):
         
         return string_
 
-    def __getitem__(self, index: str) -> any:
+    def __getitem__(self, index: int):
         if index in self.tape:
             return self.tape[index]
         else:
             return Tape.blank
 
-    def __setitem__(self, pos: any, char: any) -> None:
+    def __setitem__(self, pos: int, char: str):
         self.tape[pos] = char

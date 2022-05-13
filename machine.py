@@ -2,7 +2,7 @@ from tape import Tape
 
 class TuringMachine:
 
-    def __init__(self, tape = "", blank = " ", initial_state = "", final_states = None, transaction = None):
+    def __init__(self, tape: str = "", blank: str = " ", initial_state: str = "", final_states: str = None, transaction: dict[str, str] = None):
         self.tape = Tape(tape)
         self.head = 0
         self.blank = blank
@@ -23,16 +23,17 @@ class TuringMachine:
 
     def step(self) -> None:
         char = self.tape[self.head]
-        x = (self.current_state, char)
+        index = (self.current_state, char)
 
-        if x in self.transaction:
-            y = self.transaction[x]
-            self.tape[self.head] = y[1]
-            if y[2] == "R":
+        if index in self.transaction:
+            position = self.transaction[index]
+            self.tape[self.head] = position[1]
+
+            if position[2] == "R":
                 self.head += 1
-            elif y[2] == "L":
+            elif position[2] == "L":
                 self.head -= 1
-            self.current_state = y[0]
+            self.current_state = position[0]
 
     def final(self) -> bool:
         if self.current_state in self.final_states:
