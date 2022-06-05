@@ -20,3 +20,4 @@ Raissa Daros - raissa.fullstack@gmail.com - https://github.com/Raissadev/
 
 ## License
 This component is licensed under the GPL License
+
